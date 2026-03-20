@@ -3,7 +3,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace KB.Core
 {
-  public class KbDbContext(DbContextOptions<KbDbContext> options) : DbContext(options) {
+  public class KbDbContext : DbContext {
+        
+    protected KbDbContext(DbContextOptions options) : base(options) {}
+    public KbDbContext(DbContextOptions<KbDbContext> options) : base(options) {}
+
 
     public DbSet<Item> Items => Set<Item>();
     public DbSet<ItemType> ItemTypes => Set<ItemType>();    
