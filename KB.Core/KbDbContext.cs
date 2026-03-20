@@ -16,7 +16,6 @@ namespace KB.Core
 
     protected override void OnModelCreating(ModelBuilder modelBuilder) {
       base.OnModelCreating(modelBuilder);
-      modelBuilder.ApplyConfigurationsFromAssembly(typeof(KbDbContext).Assembly);
     }
 
     protected void ApplyKbConfigurations(ModelBuilder modelBuilder) {
