@@ -1,0 +1,41 @@
+﻿using MediatR;
+using KB.Core.Handlers.Items;
+
+namespace KB.Api.Extensions {
+  public static class ItemsEndpointsExt {
+    public static WebApplication MapItemsEndpoints(this WebApplication app) {
+
+
+      var group = app.MapGroup("/api/item").WithTags("Item");
+      
+      group.MapPost("/", async (CreateItemCommand command, IMediator mediator) => {
+        var result = await mediator.Send(command);
+        return Results.Created($"/api/item/{result.Id}", result);
+      }).WithName("CreateItem").WithDescription("Creates a new item.");
+
+      group.MapGet("/{Id}-{IncludeRelations}", async (int Id, bool? IncludeRelations, IMediator mediator) => {
+        var query = new GetItemByIdQuery(Id, IncludeRelations == null ? false : IncludeRelations.Value);
+        var result = await mediator.Send(query);
+        return Results.Ok(result);
+      }).WithName("GetItems").WithDescription("Retrieves a list of items.");
+
+      group.MapPut("/{Id}", async (int Id, UpdateItemCommand command, IMediator mediator) => {
+        if (Id != command.Id) {
+            return Results.BadRequest("ID in URL does not match ID in body.");
+        }
+        var result = await mediator.Send(command);
+        return Results.Ok(result);
+      }).WithName("UpdateItem").WithDescription("Updates an existing item.");
+
+      group.MapDelete("/{Id}", async (int Id, IMediator mediator) => {
+        var command = new DeleteItemCommand(Id);
+        await mediator.Send(command);
+        return Results.NoContent();
+      }).WithName("DeleteItem").WithDescription("Deletes an item by ID.");
+
+      return app;
+    }
+
+
+  }
+}

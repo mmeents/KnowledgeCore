@@ -1,0 +1,1 @@
+this is base database core for Items and Relations knowledge base targeting MS Sql Server via Ef Core. you will need to add package and then build a new dbContext inheriting from KbDbContext to build on top. 
