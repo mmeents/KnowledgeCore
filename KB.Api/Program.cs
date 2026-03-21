@@ -1,9 +1,10 @@
+using KB.Api.Extensions;
+using KB.Core;
+using KB.Core.Extensions;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using Serilog.Core;
-using KB.Core;
-using KB.Core.Extensions;
-using KB.Api.Extensions;
 
 namespace KB.Api {
   public class Program {

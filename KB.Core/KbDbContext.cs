@@ -15,11 +15,9 @@ namespace KB.Core
     public DbSet<ItemRelationType> ItemRelationTypes => Set<ItemRelationType>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder) {
-      base.OnModelCreating(modelBuilder);
-    }
-
-    protected void ApplyKbConfigurations(ModelBuilder modelBuilder) {
+      base.OnModelCreating(modelBuilder);      
       modelBuilder.ApplyConfigurationsFromAssembly(typeof(KbDbContext).Assembly);
     }
+
   }
 }
