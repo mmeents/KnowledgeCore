@@ -11,7 +11,7 @@ namespace KB.Core.Handlers.ItemRelations {
       int Id,
       int ItemId,
       int RelationTypeId,
-      int RelatedItemId
+      int? RelatedItemId
   ) : IRequest<ItemRelationDto>;
   public class UpdateItemRelationCommandHandler : IRequestHandler<UpdateItemRelationCommand, ItemRelationDto> {
     private readonly KbDbContext _context;

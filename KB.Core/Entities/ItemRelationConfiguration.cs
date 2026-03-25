@@ -20,6 +20,7 @@ namespace KB.Core.Entities {
       builder.HasOne(x => x.RelatedItem)
         .WithMany(x => x.IncomingRelations)
         .HasForeignKey(x => x.RelatedItemId)
+        .IsRequired(false)
         .OnDelete(DeleteBehavior.Restrict);
 
       builder.HasOne(x => x.RelationType)

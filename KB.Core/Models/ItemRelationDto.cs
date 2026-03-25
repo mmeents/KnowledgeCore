@@ -10,7 +10,7 @@ namespace KB.Core.Models {
     public int Id { get; set; }
     public int ItemId { get; set; }
     public string ItemName { get; set; } = string.Empty;
-    public int RelatedItemId { get; set; }
+    public int? RelatedItemId { get; set; } = null;
     public string RelatedItemName { get; set; } = string.Empty;
     public int RelationTypeId { get; set; }
     public string RelationTypeName { get; set; } = string.Empty;

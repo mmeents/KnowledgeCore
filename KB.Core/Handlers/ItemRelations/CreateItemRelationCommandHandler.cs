@@ -6,7 +6,7 @@ namespace KB.Core.Handlers.ItemRelations {
   public record CreateItemRelationCommand(
       int ItemId,
       int RelationTypeId,
-      int RelatedItemId
+      int? RelatedItemId
   ) : IRequest<ItemRelationDto>;
 
   public class CreateItemRelationCommandHandler : IRequestHandler<CreateItemRelationCommand, ItemRelationDto> {
