@@ -11,3 +11,5 @@ dotnet add package KB.Core
 - 1.0.0: Initial release with basic Item and Relation entities, and KbDbContext for MS Sql Server using Ef Core.
 - 1.0.3: Minor updates
 - 1.0.4: Added nullable relation in ItemRelation -- need to add migration after upgrade.
+- 1.0.5: Added Rank to ItemRelation -- need to add migration after upgrade.
+- 1.0.6: Added Rank to published Dtos.  

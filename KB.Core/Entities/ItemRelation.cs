@@ -12,7 +12,7 @@ namespace KB.Core.Entities {
     public int RelationTypeId { get; set; } = 0;
     public int? RelatedItemId { get; set; } = null;
     public DateTime Established { get; set; } = DateTime.UtcNow;
-
+    public int? Rank { get; set; }
 
     // Nav properties
     public Item Item { get; set; } = null!;

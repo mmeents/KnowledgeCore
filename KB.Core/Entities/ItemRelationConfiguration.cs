@@ -12,6 +12,8 @@ namespace KB.Core.Entities {
 
       builder.Property(x => x.Established).IsRequired().HasDefaultValueSql("GETUTCDATE()");
 
+      builder.Property(x => x.Rank).IsRequired(false);
+
       builder.HasOne(x => x.Item)
         .WithMany(x => x.Relations)
         .HasForeignKey(x => x.ItemId)
