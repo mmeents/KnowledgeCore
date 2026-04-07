@@ -16,6 +16,7 @@ namespace KB.Core.Models {
     public string RelationTypeName { get; set; } = string.Empty;
     public DateTime Established { get; set; }
     public int? Rank { get; set; } = null;
+    public bool RelatedItemHasChildren { get; set; } = false;
   }
 
   public static class ItemRelationExtensions {
@@ -30,7 +31,8 @@ namespace KB.Core.Models {
         RelationTypeId = relation.RelationTypeId,
         RelationTypeName = relation.RelationType?.Relation ?? string.Empty,
         Rank = relation.Rank,
-        Established = relation.Established
+        Established = relation.Established,
+        RelatedItemHasChildren = relation.RelatedItem?.Relations != null && relation.RelatedItem.Relations.Any()
       };
     }
   }
